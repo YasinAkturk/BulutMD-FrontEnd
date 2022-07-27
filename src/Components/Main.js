@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import Movies from "../Components/Movies"
 import Series from "../Components/Series"
 import { veri } from "../data"
-export default function Main() {    
+export default function Main() { 
     
     var myObj = (veri.map(data => data.images["Poster Art"].url));
     var myJSON = JSON.stringify(myObj);
