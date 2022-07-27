@@ -1,4 +1,4 @@
-import DiziFilm from "../Movie.json"
+import { veri } from "../data"
 export default function Series() {
     return (
         <>
@@ -12,12 +12,17 @@ export default function Series() {
                     <option >Rastgele sırala</option>
                 </select>
             </div>
-            <div className="flex flex-wrap mt-10 xs:justify-start justify-center">
-
-                <div className="flex flex-col items-center mb-10 xs:ml-10 ">
-                    <a href=""><img className="h-60 w-60 rounded-2xl bg-slate-500" ></img></a>
-                    <p className="text-2xl font-normal mt-4">Dizi adı</p>
-                </div>
+            <div className="flex flex-wrap mt-10 xs:ml-10 xs:justify-start justify-center">
+                {
+                    veri.map(imgurl => {
+                        return (
+                            <div className="flex flex-col items-center mb-10 xs:ml-10 ">
+                                <img className="h-60 w-60 rounded-2xl " src={imgurl.images["Poster Art"].url}></img>,
+                                <p className="text-2xl w-60 font-normal mt-4">{imgurl.title}</p>
+                            </div>
+                        )
+                    })
+                }
             </div>
         </>
     );
