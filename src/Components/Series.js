@@ -1,5 +1,5 @@
 import DiziFilm from "../Movie.json"
-export default function Movies() {
+export default function Series() {
     return (
         <>
             <div className="flex flex-wrap xs:flex-nowrap justify-between ml-10 mt-10">
@@ -16,7 +16,7 @@ export default function Movies() {
 
                 <div className="flex flex-col items-center mb-10 xs:ml-10 ">
                     <a href=""><img className="h-60 w-60 rounded-2xl bg-slate-500" ></img></a>
-                    <p className="text-2xl font-normal mt-4">Film adı</p>
+                    <p className="text-2xl font-normal mt-4">Dizi adı</p>
                 </div>
             </div>
         </>
