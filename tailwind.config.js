@@ -11,7 +11,8 @@ module.exports = {
       colors: {
         'yenigri': '#484848',
         'acikgri': '#999999',
-        'footer': '#1A1A1A'
+        'footer': '#1A1A1A',
+        'kenarlik': '#9D9D9D'
       },
     },
   },
