@@ -5,7 +5,7 @@ export default function Series(props) {
     const [search, setSearch] = useState("")
 
     let filtermovie = props.dizi.filter((movie) => {
-        return movie.title.toLocaleLowerCase().indexOf(search) !== -1
+        return movie.title.toLocaleLowerCase().indexOf(search.length>=3?search:"") !== -1
     }
     )
     function handleSubmit(e) {

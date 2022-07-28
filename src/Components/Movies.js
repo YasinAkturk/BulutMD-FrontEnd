@@ -3,11 +3,10 @@ import { veri } from "../data"
 export default function Movies(props) {
 
     const [search, setSearch] = useState("")
-
-    let filtermovie = props.film.filter((movie) => {
-        return movie.title.toLocaleLowerCase().indexOf(search) !== -1
-    }
+    let filtermovie = props.film.filter((movie) => 
+        movie.title.toLocaleLowerCase().indexOf(search.length>=3?search:"") !== -1
     )
+    
     function handleSubmit(e) {
         e.preventDefault();
     }
