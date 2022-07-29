@@ -35,7 +35,7 @@ export default function Series(props) {
                 placeholder="Film / Dizi / Oyuncu ara">
                 </input>
                 <select className="form-select w-40 h-12 border-2 border-kenarlik rounded-xl mr-20 ml-10 pl-2">
-                    <option >Sırala</option>
+                    <option className="hidden">Sırala</option>
                     <option >Yeniye göre sırala</option>
                     <option >Eskiye göre sırala</option>
                     <option >Puana göre sırala</option>
