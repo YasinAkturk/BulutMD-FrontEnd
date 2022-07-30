@@ -1,15 +1,16 @@
 import { useState, useEffect } from "react"
-
+/*Bu sayfada yazılan kodlar Movies sayfamdakiyle aynı olduğu için yorum satırı yazma gereksinimi duymadım.
+Yorum satırları olmadan en sade görünümü bu şekildedir.
+*/
 export default function Series(props) {
-    const [selected, setSelected] = useState("0")
+    const [filterType, setFilterType] = useState("0")
     const [search, setSearch] = useState("")
-    let filtermovie;
-
-    useEffect(() => {
+    let filterserie;
+    useEffect(() => { 
         let filterForm = document.forms["FilterForm"];
         let searchBox = filterForm["search"];
-        if (searchBox.value == "" && selected == "") {
-            setSelected("0");
+        if (searchBox.value == "" && filterType == "") {
+            setFilterType("0");
         }
     })
 
@@ -17,26 +18,25 @@ export default function Series(props) {
         e.preventDefault();
     }
 
-    filtermovie = props.dizi.filter((serie) =>
+    filterserie = props.dizi.filter((serie) =>
         serie.title.toLocaleLowerCase().indexOf(search.length >= 3 ? search : "") !== -1);
-    //console.log("Aranan Veri    Film Sayısı: "+filtermovie.length+"    Selected :"+selected);
 
-    switch (selected) {
+    switch (filterType) {
         case "0":
-            filtermovie = props.dizi.map(data => data);
-            filtermovie.length = 18;
+            filterserie = props.dizi.map(data => data);
+            filterserie.length = 18;
             break;
         case "1":
-            filtermovie.sort((a, b) => b.releaseYear - a.releaseYear)
+            filterserie.sort((a, b) => b.releaseYear - a.releaseYear)
             break;
         case "2":
-            filtermovie.sort((a, b) => a.releaseYear - b.releaseYear)
+            filterserie.sort((a, b) => a.releaseYear - b.releaseYear)
             break;
         case "3":
-            filtermovie.sort((a, b) => a.title.localeCompare(b.title))
+            filterserie.sort((a, b) => a.title.localeCompare(b.title))
             break;
         case "4":
-            filtermovie.sort(function (a, b) { return 0.5 - Math.random() })
+            filterserie.sort(function (a, b) { return 0.5 - Math.random() })
             break;
     }
 
@@ -45,14 +45,14 @@ export default function Series(props) {
             <form onSubmit={handleSubmit} name="FilterForm" className="xs:ml-20  mt-10 flex flex-wrap justify-center xs:justify-between">
                 <input
                     name="search"
-                    onInput={(event) => setSearch(event.target.value.toLocaleLowerCase(), setSelected(""))}
+                    onInput={(event) => setSearch(event.target.value.toLocaleLowerCase(), setFilterType(""))}
                     className="w-56 items-center xs:w-96 h-12 border-2 border-kenarlik rounded-xl pl-4 mb-5"
                     type="text"
                     placeholder="Film / Dizi / Oyuncu ara">
                 </input>
                 <select
-                    value={selected}
-                    onChange={(event) => setSelected(event.target.value)}
+                    value={filterType}
+                    onChange={(event) => setFilterType(event.target.value)}
                     className="form-select w-40 h-12 border-2 border-kenarlik rounded-xl mr-20 ml-10 pl-2">
                     <option value="0" className="hidden">Sırala</option>
                     <option value="1">Yeniye göre sırala</option>
@@ -63,7 +63,7 @@ export default function Series(props) {
             </form>
             <div className="flex flex-wrap mt-10 xs:ml-10 xs:justify-start justify-center">
                 {
-                    filtermovie.map((serie, key) => {
+                    filterserie.map((serie, key) => {
                         return (
                             <div key={key} className="flex flex-col items-center mb-10 xs:ml-10 ">
                                 <img className="h-60 w-60 rounded-2xl " src={serie.images["Poster Art"].url}></img>,
