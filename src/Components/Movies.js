@@ -42,27 +42,25 @@ export default function Movies(props) {
 
     return (
         <>
-            <div className="flex flex-wrap xs:flex-nowrap justify-between ml-20 mt-10">
-                <form onSubmit={handleSubmit} name="FilterForm">
-                    <input
-                        name="search"
-                        onInput={(event) => setSearch(event.target.value.toLocaleLowerCase(), setSelected(""))}
-                        className="w-56 items-center xs:w-96 h-12 border-2 border-kenarlik rounded-xl pl-4 mb-5"
-                        type="text"
-                        placeholder="Film / Dizi / Oyuncu ara">
-                    </input>
-                    <select
-                        value={selected}
-                        onChange={(event) => setSelected(event.target.value)}
-                        className="form-select w-40 h-12 border-2 border-kenarlik rounded-xl mr-20 ml-10 pl-2">
-                        <option value="0" className="hidden">Sırala</option>
-                        <option value="1">Yeniye göre sırala</option>
-                        <option value="2">Eskiye göre sırala</option>
-                        <option value="3">Alfabetik sırala</option>
-                        <option value="4">Rastgele sırala</option>
-                    </select>
-                </form>
-            </div>
+            <form onSubmit={handleSubmit} name="FilterForm" className="xs:ml-20  mt-10 flex flex-wrap justify-center xs:justify-between">
+                <input
+                    name="search"
+                    onInput={(event) => setSearch(event.target.value.toLocaleLowerCase(), setSelected(""))}
+                    className="w-56 items-center xs:w-96 h-12 border-2 border-kenarlik rounded-xl pl-4 mb-5"
+                    type="text"
+                    placeholder="Film / Dizi / Oyuncu ara">
+                </input>
+                <select
+                    value={selected}
+                    onChange={(event) => setSelected(event.target.value)}
+                    className="form-select w-40 h-12 border-2 border-kenarlik rounded-xl mr-20 ml-10 pl-2">
+                    <option value="0" className="hidden">Sırala</option>
+                    <option value="1">Yeniye göre sırala</option>
+                    <option value="2">Eskiye göre sırala</option>
+                    <option value="3">Alfabetik sırala</option>
+                    <option value="4">Rastgele sırala</option>
+                </select>
+            </form>
             <div className="flex flex-wrap mt-10 xs:ml-10 xs:justify-start justify-center">
                 {
                     filtermovie.map((movies, key) => {

@@ -10,15 +10,17 @@ import { veri } from "./data"
 function App() {
 
   let movie = [], serie = [];
-  veri.map(data => (data.programType=="movie")==true?movie.push(data):serie.push(data))
+  veri.map(data => (data.programType=="movie")==true?movie.push(data):serie.push(data)) 
+  //Map fonksiyonu kullanarak Toplu veriyi türüne göre kontrol ederek dizilere gönderiyorum.
   
   return (
     <div className="flex flex-col min-h-screen">
-
+      {/*Router dom ile sayfalar arası geçiş*/}
       <Router>
         <Header />
         <Routes>
           <Route path="/" element={<Main />} />
+          {/*props yardımıyla dizileri component'e aktarıyorum.*/}
           <Route path="/Movies" element={<Movies film={movie}/>} />
           <Route path="/Series" element={<Series dizi={serie}/>} />
         </Routes>

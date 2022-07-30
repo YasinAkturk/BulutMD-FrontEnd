@@ -5,9 +5,9 @@ export default function Footer(){
             <div className="bg-footer h-32 xs:h-24 w-full text-white">
                 <div className='pl-10 flex flex-col items-start'>
                 <ul className="flex flex-col xs:flex-row pb-3">
-                    <li><a className="text-xs font-medium px-2 hover:text-gray-300" href="#">Anasayfa  </a>|</li>
-                    <li><a className="text-xs font-medium px-2 hover:text-gray-300" href="#">Kullanıcı Sözleşmesi  </a>|</li>
-                    <li><a className="text-xs font-medium px-2 hover:text-gray-300" href="#">Anasayfa</a></li>
+                    <li className='cursor-default'><strong className="text-xs font-medium mx-2 hover:text-gray-300 cursor-pointer" href="#">Anasayfa  </strong>|</li>
+                    <li className='cursor-default'><strong className="text-xs font-medium mx-2 hover:text-gray-300 cursor-pointer" href="#">Kullanıcı Sözleşmesi  </strong>|</li>
+                    <li className='cursor-default'><strong className="text-xs font-medium mx-2 hover:text-gray-300 cursor-pointer" href="#">Gizlilik Sözleşmesi</strong></li>
                 </ul>
                 <ul className="flex flex-row">
                     <li className='pr-2'><FaFacebookF cursor="pointer" size="35" color='white'/></li>
